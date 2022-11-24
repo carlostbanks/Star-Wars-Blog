@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
+import '../styles/App.css'
 
 import { Home } from "./views/home";
 import injectContext from "./store/appContext";

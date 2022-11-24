@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			people: [],
 			planets: [],
-
+			favorites: [],
 
 	
 		},
@@ -21,6 +21,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch('https://swapi.dev/api/planets/')
 				.then(data => data.json())
 				.then(res => setStore({planets: res.results}))
+			},
+
+			//FUNCTION TO ADD HEART CLICKS TO FAVORITES LIST
+			addToFavorites: (name) => {
+				const newFav = { name: name}
+				setStore({favorites: getStore().favorites.concat(newFav)})
+			},
+
+			//DELETE ITEM FROM FAVORITES
+			deleteFromFavorites: (name) => {
+				const delFav = getStore().favorites.filter((fav) => fav.name !== name)
+				setStore({favorites: delFav})
 			}
 			
 			
